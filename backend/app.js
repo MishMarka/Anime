@@ -9,6 +9,7 @@ dotenv.config();
 const userRoutes = require('./routes/userRoutes');
 const chartRoutes = require('./routes/chartRoutes');
 const pageRoutes = require('./routes/pageRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // Initialize Express app
 const app = express();
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/users', userRoutes);
 app.use('/api/charts', chartRoutes);
 app.use('/api/pages', pageRoutes);
+app.use('/api/auth', authRoutes);
 
 // Basic route for API health check
 app.get('/api/health', (req, res) => {
