@@ -1,0 +1,48 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+
+# This is a placeholder workflow for the frontend CI
+# Uncomment and adapt this once the frontend code is in place
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    
+    # Commenting out the job until frontend is implemented
+    if: false
+    
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    # Uncomment once ESLint is set up for frontend
+    # - name: Run ESLint
+    #   run: npm run lint
+    
+    # Uncomment once tests are set up for frontend
+    # - name: Run tests
+    #   run: npm test

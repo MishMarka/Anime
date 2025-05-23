@@ -2,6 +2,11 @@
 
 MishMarka is an AI-powered platform that lets users create original anime-style manga with both images and storylines. The app supports multiple languages and runs on modern cloud infrastructure.
 
+![Backend CI](https://github.com/MishMarka/Anime/workflows/Backend%20CI/badge.svg)
+![Frontend CI](https://github.com/MishMarka/Anime/workflows/Frontend%20CI/badge.svg)
+![Deploy to Netlify](https://github.com/MishMarka/Anime/workflows/Deploy%20to%20Netlify/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-NETLIFY-APP-ID/deploy-status)](https://app.netlify.com/sites/YOUR-NETLIFY-APP-NAME/deploys)
+
 ---
 
 ## 🚀 Features
@@ -92,3 +97,23 @@ Pull requests and issues are welcome! Please see CONTRIBUTING.md for guidelines 
 ## 📄 License
 
 MIT License (c) MishMarka
+
+---
+
+## 🔧 CI/CD Setup
+
+This project uses GitHub Actions for continuous integration and deployment.
+
+### GitHub Secrets Required
+
+The following secrets need to be set up in your GitHub repository settings:
+
+- `NETLIFY_AUTH_TOKEN`: Your Netlify personal access token
+- `NETLIFY_SITE_ID`: The API ID of your Netlify site
+
+### Setting Up Netlify Deployment
+
+1. Create a site on Netlify
+2. Generate a personal access token in Netlify (User Settings > Applications > Personal access tokens)
+3. Add the token and site ID to your GitHub repository secrets
+4. Update the Netlify badge in this README with your Netlify app ID
