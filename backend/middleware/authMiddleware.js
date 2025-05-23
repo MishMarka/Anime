@@ -1,4 +1,5 @@
 const { createClient } = require('@supabase/supabase-js');
+const { UnauthorizedError } = require('./errorMiddleware');
 
 // Initialize Supabase client
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -17,7 +18,7 @@ const verifyToken = async (req, res, next) => {
     const authHeader = req.headers.authorization;
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Unauthorized - No token provided' });
+      return next(new UnauthorizedError('No token provided'));
     }
     
     const token = authHeader.split(' ')[1];
@@ -26,15 +27,14 @@ const verifyToken = async (req, res, next) => {
     const { data, error } = await supabase.auth.getUser(token);
     
     if (error) {
-      return res.status(401).json({ error: 'Unauthorized - Invalid token' });
+      return next(new UnauthorizedError('Invalid token'));
     }
     
     // Add user data to request object
     req.user = data.user;
     next();
   } catch (error) {
-    console.error('Authentication error:', error);
-    return res.status(500).json({ error: 'Internal server error during authentication' });
+    next(error);
   }
 };
 

@@ -1,13 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const chartController = require('../controllers/chartController');
+const { chartValidation } = require('../middleware/validationMiddleware');
+const { handleValidationErrors } = require('../middleware/errorMiddleware');
 
 /**
  * @route   POST /api/charts
  * @desc    Create a new chart
  * @access  Public (authentication will be added later)
  */
-router.post('/', chartController.createChart);
+router.post('/', 
+  chartValidation.createChart,
+  handleValidationErrors,
+  chartController.createChart
+);
 
 /**
  * @route   GET /api/charts
@@ -21,20 +27,32 @@ router.get('/', chartController.getAllCharts);
  * @desc    Get chart by ID
  * @access  Public (authentication will be added later)
  */
-router.get('/:id', chartController.getChartById);
+router.get('/:id', 
+  chartValidation.getChartById,
+  handleValidationErrors,
+  chartController.getChartById
+);
 
 /**
  * @route   PUT /api/charts/:id
  * @desc    Update chart by ID
  * @access  Public (authentication will be added later)
  */
-router.put('/:id', chartController.updateChart);
+router.put('/:id', 
+  chartValidation.updateChart,
+  handleValidationErrors,
+  chartController.updateChart
+);
 
 /**
  * @route   DELETE /api/charts/:id
  * @desc    Delete chart by ID
  * @access  Public (authentication will be added later)
  */
-router.delete('/:id', chartController.deleteChart);
+router.delete('/:id', 
+  chartValidation.deleteChart,
+  handleValidationErrors,
+  chartController.deleteChart
+);
 
 module.exports = router;

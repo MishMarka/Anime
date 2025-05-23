@@ -11,6 +11,9 @@ const chartRoutes = require('./routes/chartRoutes');
 const pageRoutes = require('./routes/pageRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+// Import error handling middleware
+const { errorHandler, notFoundHandler, handleValidationErrors } = require('./middleware/errorMiddleware');
+
 // Initialize Express app
 const app = express();
 
@@ -18,6 +21,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Add validation error handling middleware
+app.use(handleValidationErrors);
 
 // Register routes with prefixes
 app.use('/api/users', userRoutes);
@@ -30,16 +36,11 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'API is up and running' });
 });
 
-// Handle 404 errors
-app.use((req, res, next) => {
-  res.status(404).json({ error: 'Route not found' });
-});
+// Handle 404 errors - must come after all valid routes
+app.use(notFoundHandler);
 
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({ error: 'Internal server error' });
-});
+// Global error handler - must be the last middleware
+app.use(errorHandler);
 
 // Set port and start server
 const PORT = process.env.PORT || 3000;
