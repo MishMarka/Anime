@@ -1,90 +1,94 @@
-📝 Project Overview: MishMarka
-Description:
-MishMarka is an AI manga generator that creates original anime-style manga with both images and storylines. The app is multilingual and designed to run on modern cloud infrastructure.
+# MishMarka: AI Manga Generator
 
-🔧 Features
-AI-Generated Manga Structure:
+MishMarka is an AI-powered platform that lets users create original anime-style manga with both images and storylines. The app supports multiple languages and runs on modern cloud infrastructure.
 
-10 “Chapters” (Charts) per anime idea
+---
 
-Each Chart contains 30 Manga Pages
+## 🚀 Features
 
-Each Page contains 7 Panels (Images)
+- **AI-Generated Manga Structure**
+  - 10 "Chapters" (Charts) per manga project
+  - Each Chapter contains 30 Manga Pages
+  - Each Page contains 7 Panels (AI-generated images + text)
 
-Multilingual Support:
+- **Multilingual Support**
+  - English, Spanish, Japanese, Chinese
 
-Spanish 🇪🇸
+- **AI/ML Stack**
+  - Hugging Face models for text and image generation
+  - Supabase for backend (users, data, history)
+  - Netlify for frontend hosting
 
-English 🇬🇧
+- **Core Capabilities**
+  - Generate story ideas, outlines, and detailed manga pages
+  - AI-generated panel images
+  - Instant multilingual translation
+  - User accounts, saving, exporting, and sharing manga works
 
-Japanese 🇯🇵
+---
 
-Chinese 🇨🇳
+## 🛠️ Tech Stack
 
-AI/ML Stack:
+| Component   | Technology                  |
+|-------------|----------------------------|
+| Frontend    | React + Tailwind / Next.js |
+| Hosting     | Netlify                    |
+| Backend     | Supabase (Postgres + Auth + Storage) |
+| AI Models   | Hugging Face (text2image + text gen) |
+| Languages   | EN, ES, JA, ZH             |
+| Dev Env     | GitHub Codespaces          |
 
-Hugging Face Models for text and image generation
+---
 
-Codespaces for development (optional)
+## 🧠 AI Models (Hugging Face)
 
-Supabase for storing users, manga data, and history
+- **Text Story Generator:** gpt2, mistral, phi, or similar
+- **Image Generator:** stable-diffusion, sdxl, waifu-diffusion
+- **Translation:** mbart50, nllb-200
 
-Netlify for hosting frontend
+---
 
-Core Capabilities:
+## 🏄 User Flow
 
-Manga story idea generation
+1. User enters an idea (or generates a random one)
+2. App creates 10 chapter outlines (charts)
+3. Each chart gets a 30-page manga story
+4. Each page gets 7 image prompts and story text
+5. Images are generated using Hugging Face models
+6. Text is translated into 4 languages
+7. Users can save, export, or share manga
 
-Story writing by chart/page
+---
 
-Image generation for each panel using AI
+## ✅ Project Checklist
 
-Multilingual translation of text
+- [ ] Define story generator prompts/templates
+- [ ] Set up Supabase schema (users, charts, pages, panels)
+- [ ] Build multilingual translation pipeline
+- [ ] Integrate Hugging Face APIs
+- [ ] Build React frontend with chart/page navigation
+- [ ] Set up Netlify CI/CD
+- [ ] Optimize image generation queue and performance
 
-User accounts, saving, and retrieval
+---
 
-🛠️ Tech Stack
-Component	Technology
-Frontend	React + Tailwind (or Next.js)
-Hosting	Netlify
-Backend	Supabase (Postgres + Auth + Storage)
-AI Models	Hugging Face (text2image + text generation)
-Languages	English, Spanish, Japanese, Chinese
-Dev Env	GitHub Codespaces
+## 📂 Directory Structure (Suggested)
 
-🧠 AI Models (Hugging Face)
-Text Story Generator: GPT-style model (e.g., gpt2, mistral, or phi)
+```
+/frontend      # React or Next.js frontend app
+/backend       # Supabase migrations, API scripts, utility functions
+/.github       # GitHub workflows, issue templates
+/README.md
+```
 
-Image Generator: stable-diffusion, sdxl, or anime-specific models like waifu-diffusion
+---
 
-Translation: mbart50 or nllb-200
+## 📝 Contributing
 
-🚀 User Flow
-User enters idea (or generates random idea)
+Pull requests and issues are welcome! Please see CONTRIBUTING.md for guidelines (to be added).
 
-App creates 10 chapter outlines (charts)
+---
 
-Each chart gets a 30-page manga story
+## 📄 License
 
-Each page gets 7 image prompts and story text
-
-Images are generated using Hugging Face models
-
-Text is translated into 4 languages
-
-Users can save, export, or share manga
-
-✅ TODO Checklist
- Define story generator prompts/templates
-
- Set up Supabase schema (users, charts, pages, panels)
-
- Build multilingual translation pipeline
-
- Integrate Hugging Face APIs
-
- Build React frontend with chart/page navigation
-
- Set up Netlify CI/CD
-
- Optimize image generation queue and performance
+MIT License (c) MishMarka
