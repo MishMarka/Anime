@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px 0;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+}
+
+.App-header nav {
+  margin-top: 15px;
+}
+
+.App-header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.App-header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.App-header a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.home h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.home p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  margin-top: 30px;
+}
+
+.cta-button a {
+  display: inline-block;
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.cta-button a:hover {
+  background-color: #3a7bc8;
+}
