@@ -1,40 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const chartController = require('../controllers/chartController');
+const { verifyToken } = require('../middleware/authMiddleware');
 
 /**
  * @route   POST /api/charts
  * @desc    Create a new chart
- * @access  Public (authentication will be added later)
+ * @access  Private (requires authentication)
  */
-router.post('/', chartController.createChart);
+router.post('/', verifyToken, chartController.createChart);
 
 /**
  * @route   GET /api/charts
  * @desc    Get all charts (can filter by user_id via query parameter)
- * @access  Public (authentication will be added later)
+ * @access  Private (requires authentication)
  */
-router.get('/', chartController.getAllCharts);
+router.get('/', verifyToken, chartController.getAllCharts);
 
 /**
  * @route   GET /api/charts/:id
  * @desc    Get chart by ID
- * @access  Public (authentication will be added later)
+ * @access  Private (requires authentication)
  */
-router.get('/:id', chartController.getChartById);
+router.get('/:id', verifyToken, chartController.getChartById);
 
 /**
  * @route   PUT /api/charts/:id
  * @desc    Update chart by ID
- * @access  Public (authentication will be added later)
+ * @access  Private (requires authentication)
  */
-router.put('/:id', chartController.updateChart);
+router.put('/:id', verifyToken, chartController.updateChart);
 
 /**
  * @route   DELETE /api/charts/:id
  * @desc    Delete chart by ID
- * @access  Public (authentication will be added later)
+ * @access  Private (requires authentication)
  */
-router.delete('/:id', chartController.deleteChart);
+router.delete('/:id', verifyToken, chartController.deleteChart);
 
 module.exports = router;
