@@ -23,7 +23,28 @@ This is the backend API for the Anime charting application.
    npm run dev
    ```
 
+## API Documentation
+
+The API is documented using OpenAPI (Swagger) specification. When the server is running, you can access the interactive API documentation at:
+
+```
+http://localhost:3000/api/docs
+```
+
+The documentation includes:
+- All available endpoints and operations
+- Request parameters and body schemas
+- Response formats and examples
+- Authentication requirements
+
+The documentation is automatically updated when the API changes, as it's generated from JSDoc annotations in the code.
+
 ## API Routes
+
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login a user
+- `GET /api/auth/me` - Get current user information (requires authentication)
 
 ### Users
 - `POST /api/users` - Create a new user
